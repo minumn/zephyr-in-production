@@ -9,4 +9,7 @@ manifest:
         name-allowlist:
           - cmsis_6
           - hal_nxp
+          - mcuboot
+          - mbedtls
+          - tf-psa-crypto
         path-prefix: deps

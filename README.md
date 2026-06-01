@@ -51,12 +51,13 @@ into `deps/` - a small checkout, not the full Zephyr tree.
 west sdk install
 ```
 
-### 4. Install the flash tool (pyOCD)
+### 4. Install the flash and signing tools
 
 ```bash
-pip install pyocd
+pip install -r requirements.txt
 pyocd pack install MCXA156
 pyocd list                      # should list the MCU-Link probe when the board is plugged in
+imgtool -h                      # should print imgtool help message
 ```
 
 **Linux users:** you almost certainly need the CMSIS-DAP udev rules and `dialout` group
