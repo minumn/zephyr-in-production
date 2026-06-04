@@ -64,7 +64,25 @@ imgtool -h                      # should print imgtool help message
 membership for the probe and serial port to work without `sudo`.
 See [TROUBLESHOOTING.md](TROUBLESHOOTING.md#linux-usb-permissions).
 
-### 5. Verify your setup
+### 5. Install Go and the `mcumgr` CLI
+
+[`mcumgr`](https://github.com/apache/mynewt-mcumgr-cli) is the SMP host tool used to push
+a new signed image to the board over serial. It is written in Go, so you install Go first,
+then `go install` the client.
+
+Install Go (1.21+) following the [official instructions](https://go.dev/doc/install).
+
+Then install `mcumgr` and put Go's bin dir on your PATH:
+
+```bash
+go install github.com/apache/mynewt-mcumgr-cli/mcumgr@latest
+
+# the binary lands in $(go env GOPATH)/bin - add it to PATH if it isn't already
+export PATH="$PATH:$(go env GOPATH)/bin"   # add to ~/.bashrc / ~/.zshrc to persist
+mcumgr version                             # confirm it runs
+```
+
+### 6. Verify your setup
 
 Run these and confirm each works:
 
