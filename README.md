@@ -26,8 +26,8 @@ The goal is to be able to **build and flash blinky to your board and see the LED
 ### 1. Get the code and a Python virtualenv
 
 ```bash
-git clone <workshop-repo-url> packt-training
-cd packt-training
+git clone https://github.com/marszald/zephyr-in-production.git
+cd zephyr-in-production
 python3 -m venv .venv
 source .venv/bin/activate      # run this in every new terminal
 pip install west
