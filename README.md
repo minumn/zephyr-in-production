@@ -23,10 +23,15 @@ The goal is to be able to **build and flash blinky to your board and see the LED
 - **Python 3.10+** and **Git** installed
 - A **GitHub account** (used later in the CI portion)
 
-### 1. Get the code and a Python virtualenv
+### 1. Fork the repo and get the code
+
+**Fork** this repo to your own GitHub account first - click **Fork** at the top of
+https://github.com/marszald/zephyr-in-production.
+
+Then clone **your fork** (swap in your GitHub username) and set up a Python virtualenv:
 
 ```bash
-git clone https://github.com/marszald/zephyr-in-production.git
+git clone https://github.com/<your-username>/zephyr-in-production.git
 cd zephyr-in-production
 python3 -m venv .venv
 source .venv/bin/activate      # run this in every new terminal
