@@ -3,6 +3,7 @@
 #include <zephyr/logging/log.h>
 
 #define LED_NODE DT_ALIAS(led0)
+#define BLINK_MS DT_PROP(DT_PATH(zephyr_user), blink_period_ms)
 
 static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
 
@@ -27,8 +28,11 @@ int main(void)
 
         led_state = !led_state;
         LOG_INF("LED state: %s", led_state ? "ON" : "OFF");
-        k_msleep(1000);
+        k_msleep(BLINK_MS);
     }
 
     return 0;
 }
+// clangd
+// kconfig
+// std device tree
