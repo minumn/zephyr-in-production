@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "West: Build",
+            "type": "shell",
+            "command": "source ${workspaceFolder}/.venv/bin/activate && ${workspaceFolder}/.venv/bin/west build app --sysbuild -b training/mcxa156",
+            "group": {
+                "kind": "build",
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "West: Build (pristine)",
+            "type": "shell",
+            "command": "source ${workspaceFolder}/.venv/bin/activate && ${workspaceFolder}/.venv/bin/west build app --sysbuild -b training/mcxa156 --pristine",
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "West: Flash",
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "command": "source ${workspaceFolder}/.venv/bin/activate && ${workspaceFolder}/.venv/bin/west flash --runner pyocd",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "West: Build and Flash",
+            "dependsOrder": "sequence",
+            "dependsOn": ["West: Build", "West: Flash"],
+            "group": "build",
+            "problemMatcher": []
+        },
+    ]
+}
